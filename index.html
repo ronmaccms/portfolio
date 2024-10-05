@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <script src="main.js" defer></script> <!-- Link to the external JS file -->
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="dynamicClass" v-bind:id="dynamicID">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est ut, eum ipsum ratione, itaque sed vero illum pariatur laborum iste unde tempore iusto fugiat, repudiandae natus voluptatem ab dolorem? Facilis?        
+        </div>
+        <button v-bind:disabled="disabled"> You Cant see this</button>
+
+        <!-- 
+        DIRECTIVES 
+        <a v-bind:href="url">Link</a>
+        <a :href="url">Link</a>
+        <a v-on:click="funFunction"></a>
+        <a @click="funFunction"></a>
+         -->
+
+        <!-- Dynamic Arguments -->
+        <!-- <a v-bind:[attribute_name]="url">Link</a>
+        <a :[attribute_name]="url">Link</a> -->
+        <!-- Dynamic Events -->
+        <a v-on:[event_name]="runFunction">Click me</a>
+        <a v-on="dynamicEvent">Click me</a>
+
+
+    </div>
+
+</body>
+</html>
