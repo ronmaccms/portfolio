@@ -10,9 +10,13 @@
 <body>
     <div id="app">
         <div>
-            {{ getFullName() }}
+            <!-- {{ getFullName() }} -->
         </div>
-
+        <!-- <h1 v-if="showTitle">{{ movieTitle }}</h1> -->
+        <!-- <h1 v-if="age >= 18">{{ movieTitle }}</h1> -->
+        <h1 v-if="age >= 21">{{ movieTitle }}</h1>
+        <h1 v-else-if="age > 18 && age < 21">{{ movieTitle }} | Watch with an adults</h1>
+        <h1 v-else>{{ movieTitle }} | Sorry you are too young to see this movie</h1>
 
     </div>
     <script src="main.js"></script> <!-- Link to the external JS file -->

@@ -1,6 +1,13 @@
+
+let userAge = Number(prompt("What's your age"))
+
 const app = Vue.createApp({
     data() {
         return {
+            movieTitle: "Shining",
+            age: userAge,
+            //age: 18,
+            showTitle: true,
             firstName: "Andres",
             lastName: "Macchiavello",
             title: "My Portfolio",
