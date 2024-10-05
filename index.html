@@ -5,18 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
-    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div id="app">
         <h1>{{ name + " " + title }}</h1>
         <ul>
-            <li v-for="(project, index) in projects" :key="project.title">
-                {{project.title}}
+            <li v-for="(project, index) in projects">
+                {{ project.title.toUpperCase() }}
+                <div>
+                    <!-- Adding $event to pass the event object properly -->
+                    <i class="fas fa-heart" @click.left="addLike(project)"
+                        @click.right.prevent="removeLike(project)"></i>
+                    Likes: {{ project.likes }}
+                </div>                
             </li>
-        </ul>
-
+        </ul>        
     </div>
     <script src="main.js"></script>
 </body>
+<style>
+    /* Container styling for projects */
+    ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    /* Card-like appearance for each project */
+    li {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icon style */
+    li i {
+        color: rgb(0, 48, 80);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Title for each project */
+    li div {
+        margin-top: 10px;
+    }
+
+    /* Likes counter */
+    li span {
+        display: block;
+        font-size: 14px;
+        color: #333;
+        margin-top: 8px;
+    }
+</style>
 </html>

@@ -1,30 +1,26 @@
-
-// let userAge = Number(prompt("What's your age"))
-
 const app = Vue.createApp({
     data() {
         return {
             name: "Andres Macchiavello",
             title: "Portfolio",
             projects: [
-                {title: "Portfolio", language: ["HTML", "CSS", "JavaScript", "VueJS"]},
-                {title: "Twitter clone", language: ["HTML", "CSS", "JavaScript", "VueJS"]},
-                {title: "Blog", language: ["HTML", "CSS", "JavaScript", "VueJS"]},
-                {title: "eCommerce", language: ["HTML", "CSS", "JavaScript", "VueJS"]},
-            ]
+                { title: "Portfolio", likes: 0 },
+                { title: "Twitter Clone", likes: 0 },
+                { title: "Blog", likes: 0 },
+                { title: "eCommerce", likes: 0 }
+            ],
         };
     },
     methods: {
-        runFunction() {
-            console.log("Test click function");
+        addLike(project) {
+            project.likes++; // This will now increment without checking localStorage
+            console.log(project, "like");
         },
-
-    },
-    computed: {
-        dynamicEvent() {
-            return {
-                [this.event_name]: this.runFunction
-            };
+        removeLike(project) {
+            if (project.likes > 0) {
+                project.likes--;
+            }
+            console.log(project, "dislike");
         }
     }
 });
