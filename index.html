@@ -2,66 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Vue</title>
-    <script src="https://unpkg.com/vue@3.0.2"></script>
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Axios Tutorial</title>
 </head>
 <body>
+
     <div id="app">
-        <h1>{{ name + " " + title }}</h1>
-        <ul>
-            <li v-for="(project, index) in projects">
-                {{ project.title.toUpperCase() }}
-                <div>
-                    <!-- Adding $event to pass the event object properly -->
-                    <i class="fas fa-heart" @click.left="addLike(project)"
-                        @click.right.prevent="removeLike(project)"></i>
-                    Likes: {{ project.likes }}
-                </div>                
-            </li>
-        </ul>        
+        <div v-for="project in projects">
+            <h2 class="title">{{ project.full_name }}</h2>
+            <div class="author">
+                <img width="50" :src="project.owner.avatar_url" alt="me">
+            </div>
+            <div class="view">
+                <a :href="project.html_url">View</a>
+            </div>
+        </div>
     </div>
-    <script src="main.js"></script>
+
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- VueJS version 3 -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- Main JS file -->
+    <script src="./main.js"></script>
+
 </body>
-<style>
-    /* Container styling for projects */
-    ul {
-        display: flex;
-        justify-content: space-between;
-        list-style-type: none;
-        padding: 0;
-    }
-
-    /* Card-like appearance for each project */
-    li {
-        border: 1px solid #ddd;
-        padding: 10px;
-        border-radius: 5px;
-        width: 200px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Icon style */
-    li i {
-        color: rgb(0, 48, 80);
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    /* Title for each project */
-    li div {
-        margin-top: 10px;
-    }
-
-    /* Likes counter */
-    li span {
-        display: block;
-        font-size: 14px;
-        color: #333;
-        margin-top: 8px;
-    }
-</style>
 </html>
